@@ -4,10 +4,10 @@
 [core]
 	excludesfile = /Users/daniel/.gitignore_global
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
 	trustExitCode = true
 [color]
 	ui = true
@@ -15,3 +15,6 @@
 	ff = flow feature
 	fh = flow hotfix
 	fr = flow release
+	co = checkout
+	p = push
+	bd = branch -d
