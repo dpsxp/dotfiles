@@ -18,3 +18,9 @@
 	co = checkout
 	p = push
 	bd = branch -d
+	s = status
+	pu = pull
+	l = log
+	cm = commit -m 
+	ca = commit --amend
+	
