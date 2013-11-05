@@ -17,6 +17,7 @@ Bundle 'kchmck/vim-coffee-script'
 if has("autocmd")
   syntax on
   autocmd BufNewFile,BufRead *.js.coffee setfiletype coffeescript
+  autocmd BufWritePre * :%s/\s\+$//e
   filetype plugin indent on
 endif
 
