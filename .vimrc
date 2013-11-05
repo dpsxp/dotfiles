@@ -12,6 +12,10 @@ Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'git://github.com/terryma/vim-multiple-cursors.git'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
 
 
 if has("autocmd")
