@@ -6,3 +6,4 @@ vendor/ruby/
 app_keys.sh
 atlassian-ide-plugin.xml
 deploy.sh
+data_bag_key
