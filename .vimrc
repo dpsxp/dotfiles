@@ -9,14 +9,20 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'git://github.com/terryma/vim-multiple-cursors.git'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+Bundle 'git://github.com/tomtom/tcomment_vim.git'
+
+" Snippets
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
+
+" Rails
+Bundle 'git://github.com/tpope/vim-rails.git'
+Bundle 'git://github.com/tpope/vim-rake.git'
+Bundle 'git://github.com/tpope/vim-bundler.git'
 
 if has("autocmd")
   syntax on
