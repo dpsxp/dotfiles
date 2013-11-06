@@ -16,12 +16,13 @@ Bundle 'git://github.com/terryma/vim-multiple-cursors.git'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
-
+Bundle "honza/vim-snippets"
 
 if has("autocmd")
   syntax on
   autocmd BufNewFile,BufRead *.js.coffee setfiletype coffeescript
   autocmd BufWritePre * :%s/\s\+$//e
+  autocmd FileType snippets setlocal ts=4 sts=4 sw=4 expandtab
   filetype plugin indent on
 endif
 
