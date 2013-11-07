@@ -1,7 +1,15 @@
 set ts=2 sts=2 sw=2 expandtab
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
-set guifont=Monaco:h13
+set cpotions+=$
+
+if has("gui_running")
+  set guifont=Monaco:h13
+  set guioptions-=r
+  set guioptions-=l
+  set number
+  color github
+endif
 
 " Plugins
 Bundle 'gmarik/vundle'
@@ -12,6 +20,7 @@ Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'git://github.com/terryma/vim-multiple-cursors.git'
 Bundle 'git://github.com/tomtom/tcomment_vim.git'
+Bundle 'https://github.com/scrooloose/nerdtree.git'
 
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -24,6 +33,10 @@ Bundle 'git://github.com/tpope/vim-rails.git'
 Bundle 'git://github.com/tpope/vim-rake.git'
 Bundle 'git://github.com/tpope/vim-bundler.git'
 
+" Dash
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+
 if has("autocmd")
   syntax on
   autocmd BufNewFile,BufRead *.js.coffee setfiletype coffeescript
@@ -35,3 +48,4 @@ endif
 " Maps
 nmap <C-N><C-N> :set invnumber<CR>
 nmap <C-P> :CommandT<CR>
+nmap <F3> :NERDTreeToggle<CR>
