@@ -1,7 +1,6 @@
 set ts=2 sts=2 sw=2 expandtab
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
-set cpotions+=$
 
 if has("gui_running")
   set guifont=Monaco:h13
