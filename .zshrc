@@ -53,10 +53,13 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/bin:/usr/local/share/npm/bin
-
 export PATH=/usr/local/php5/bin:$HOME/bin/play/:$PATH
 export PATH=$PATH:$HOME/bin/android-sdk/tools:$HOME/bin/android-skd/platform-tools
+
+# Mvim
+export VIM_APP_DIR=/Applications/MacVim-snapshot-72
 export EDITOR=vim
+
 export PGHOST=localhost
 
 ### Added by the Heroku Toolbelt
