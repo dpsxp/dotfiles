@@ -1,9 +1,10 @@
 set ts=2 sts=2 sw=2 expandtab
+filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 if has("gui_running")
-  set guifont=Monaco:h13
+  set guifont=Monaco:h12
   set guioptions-=r
   set guioptions-=l
   set number
@@ -14,8 +15,7 @@ endif
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'git://git.wincent.com/command-t.git'
+Bundle "https://github.com/kien/ctrlp.vim"
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'git://github.com/terryma/vim-multiple-cursors.git'
 Bundle 'git://github.com/tomtom/tcomment_vim.git'
@@ -26,6 +26,7 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
+Bundle 'git://github.com/mattn/emmet-vim.git'
 
 " Rails
 Bundle 'git://github.com/tpope/vim-rails.git'
@@ -41,10 +42,23 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.js.coffee setfiletype coffeescript
   autocmd BufWritePre * :%s/\s\+$//e
   autocmd FileType snippets setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd BufNewFile,BufRead *.less set filetype=sass
+  " autocmd BufWritePost .vimrc source $MYVIMRC
   filetype plugin indent on
 endif
 
 " Maps
 nmap <C-N><C-N> :set invnumber<CR>
-nmap <C-P> :CommandT<CR>
+nmap <C-P> :CtrlP<CR>
+nmap <leader>b :CtrlPBuffer<CR>
 nmap <F3> :NERDTreeToggle<CR>
+imap hh <C-y>,
+
+
+let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC
+
+" CtrlP
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+" set wildignore +=",vendor/ruby/**,vendor/jruby/**,*/tmp/*,*.swp"
