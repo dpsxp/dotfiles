@@ -48,17 +48,20 @@ if has("autocmd")
 endif
 
 " Maps
+let mapleader = ","
 nmap <C-N><C-N> :set invnumber<CR>
 nmap <C-P> :CtrlP<CR>
-nmap <leader>b :CtrlPBuffer<CR>
 nmap <F3> :NERDTreeToggle<CR>
 imap hh <C-y>,
 
-
-let mapleader = ","
+" Leader maps
 nmap <leader>v :tabedit $MYVIMRC
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>a :Gwrite<CR>
+nmap <leader>c :Gcommit<CR>
+nmap <leader>s :Gstatus<CR>
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-" set wildignore +=",vendor/ruby/**,vendor/jruby/**,*/tmp/*,*.swp"
+set wildignore +=*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp
