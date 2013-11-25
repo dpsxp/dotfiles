@@ -16,6 +16,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle "https://github.com/kien/ctrlp.vim"
+Bundle "tacahiroy/ctrlp-funky"
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'git://github.com/terryma/vim-multiple-cursors.git'
 Bundle 'git://github.com/tomtom/tcomment_vim.git'
@@ -60,8 +61,10 @@ nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>a :Gwrite<CR>
 nmap <leader>c :Gcommit<CR>
 nmap <leader>s :Gstatus<CR>
+nmap <leader>fu :CtrlPFunky<CR>
 
 " CtrlP
+let g:ctrlp_extensions = ['funky']
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 set wildignore +=*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp
