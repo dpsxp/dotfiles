@@ -62,6 +62,7 @@ nmap <leader>a :Gwrite<CR>
 nmap <leader>c :Gcommit<CR>
 nmap <leader>s :Gstatus<CR>
 nmap <leader>fu :CtrlPFunky<CR>
+nmap <leader>p :copen<CR>
 
 " CtrlP
 let g:ctrlp_extensions = ['funky']

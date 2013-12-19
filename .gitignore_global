@@ -8,3 +8,4 @@ atlassian-ide-plugin.xml
 deploy.sh
 data_bag_key
 *.swp
+node_modules
