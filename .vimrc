@@ -34,6 +34,11 @@ Bundle 'git://github.com/tpope/vim-rails.git'
 Bundle 'git://github.com/tpope/vim-rake.git'
 Bundle 'git://github.com/tpope/vim-bundler.git'
 
+" Clojure
+Bundle 'git://github.com/guns/vim-clojure-static.git'
+Bundle 'git://github.com/tpope/vim-fireplace.git'
+Bundle 'git://github.com/tpope/vim-classpath.git'
+
 " Dash
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
