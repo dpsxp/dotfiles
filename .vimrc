@@ -44,6 +44,7 @@ if has("autocmd")
   autocmd BufWritePre * :%s/\s\+$//e
   autocmd FileType snippets setlocal ts=4 sts=4 sw=4 expandtab
   autocmd BufNewFile,BufRead *.less set filetype=sass
+  autocmd BufNewFile,BufRead *.rabl set filetype=ruby
   " autocmd BufWritePost .vimrc source $MYVIMRC
   filetype plugin indent on
 endif
@@ -69,3 +70,4 @@ let g:ctrlp_extensions = ['funky']
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 set wildignore +=*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp
+
