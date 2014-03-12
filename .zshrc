@@ -18,6 +18,7 @@ alias composer="php ~/bin/composer.phar"
 alias artisan="php artisan"
 alias rspec="bundle exec rspec"
 alias makepot="php /Users/danielpaulino/tools/makepot/makepot.php"
+source ~/.bin/tmuxinator.zsh
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
