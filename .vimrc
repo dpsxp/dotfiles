@@ -136,13 +136,34 @@ function! MoveTo(newname)
   exec "bdelete " . a:oldname
 endfunction
 
+
+" Git helper functions
 function! Push(...)
   if a:0 > 0
     let branch = a:1
   else
-    let branch = system("git branch 2> /dev/null | grep '*' | sed -e 's/* //'")
+    let branch = GetBranch()
   end
-  call VimuxRunCommand("git push origin " . branch)
+  call GitExec(branch, "push")
+endfunction
+
+function! GitExec(branch, act)
+  let branch = a:branch
+  let act = a:act
+  call VimuxRunCommand("git " . act . " origin " . branch)
+endfunction
+
+function GetBranch()
+  return system("git branch 2> /dev/null | grep '*' | sed -e 's/* //'")
+endfunction
+
+function! Pull(...)
+  if a:0 > 0
+    let branch = a:1
+  else
+    let branch = GetBranch()
+  end
+  call GitExec(branch, "pull --rebase")
 endfunction
 
 function! Trim()
@@ -150,7 +171,7 @@ function! Trim()
 endfunction
 
 " Maps for Functions
-nmap <leader>gp :call Push(
-nmap <leader>s :call Trim()<CR>
+nmap <leader>gp :call Push()
+nmap <leader>gf :call Pull()
 
 let coffee_linter = '/usr/local/bin/coffeelint'
