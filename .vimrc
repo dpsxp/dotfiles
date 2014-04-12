@@ -138,6 +138,10 @@ endfunction
 
 
 " Git helper functions
+function! GetBranch()
+  return system("git branch 2> /dev/null | grep '*' | sed -e 's/* //'")
+endfunction
+
 function! Push(...)
   if a:0 > 0
     let branch = a:1
@@ -151,10 +155,6 @@ function! GitExec(branch, act)
   let branch = a:branch
   let act = a:act
   call VimuxRunCommand("git " . act . " origin " . branch)
-endfunction
-
-function GetBranch()
-  return system("git branch 2> /dev/null | grep '*' | sed -e 's/* //'")
 endfunction
 
 function! Pull(...)
