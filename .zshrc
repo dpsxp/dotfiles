@@ -13,11 +13,7 @@ alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshreload="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
-alias emacs="emacs-24.3 -nw"
-alias composer="php ~/bin/composer.phar"
-alias artisan="php artisan"
 alias rspec="bundle exec rspec"
-alias makepot="php /Users/danielpaulino/tools/makepot/makepot.php"
 source ~/.bin/tmuxinator.zsh
 
 # Set to this to use case-sensitive completion
@@ -59,11 +55,8 @@ export PATH=/usr/local/php5/bin:$HOME/bin/play/:$PATH
 export PATH=$PATH:$HOME/bin/android-sdk/tools:$HOME/bin/android-skd/platform-tools
 
 # Mvim
-export VIM_APP_DIR=/Applications/MacVim-snapshot-72
 export EDITOR=vim
-
 export PGHOST=localhost
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
