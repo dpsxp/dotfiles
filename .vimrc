@@ -67,7 +67,8 @@ if has("autocmd")
   syntax on
   autocmd BufNewFile,BufRead *.coffee setfiletype coffeescript
   autocmd BufWrite * :call Trim()
-  autocmd FileType snippets,css,js,html,python,markdown setlocal ts=4 sts=4 sw=4
+  autocmd FileType markdown let b:noTrim='true'
+  autocmd FileType snippets,css,javascript,html,python,markdown setlocal ts=4 sts=4 sw=4
   autocmd BufNewFile,BufRead *.less set filetype=sass
   autocmd BufRead,BufNewFile *.rabl set filetype=ruby
   autocmd BufRead,BufNewFile *.json set filetype=javascript
@@ -167,6 +168,9 @@ function! Pull(...)
 endfunction
 
 function! Trim()
+  if exists('b:noTrim')
+   return
+  endif
   %s/\s\+$//e
 endfunction
 
