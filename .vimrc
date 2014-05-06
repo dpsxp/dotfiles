@@ -105,6 +105,7 @@ nmap <leader>c :Gcommit<CR>
 nmap <leader>s :Gstatus<CR>
 nmap <leader>fu :CtrlPFunky<CR>
 nmap <leader>p :copen<CR>
+nmap <leader>j :JSHint<CR>
 
 " Maps
 cnoremap <C-a>  <Home>
