@@ -13,6 +13,28 @@ Bundle 'ap/vim-css-color'
 Bundle 'benmills/vimux'
 Bundle 'git://github.com/tpope/vim-surround.git'
 
+" Scala
+Bundle 'derekwyatt/vim-scala'
+
+" Tabular
+Bundle "git://github.com/godlygeek/tabular.git"
+
+" CTRL P
+Bundle "https://github.com/kien/ctrlp.vim"
+Bundle "tacahiroy/ctrlp-funky"
+
+" Git
+Bundle 'tpope/vim-fugitive'
+
+" Tmux tools
+Bundle 'benmills/vimux'
+
+" Scala
+Bundle 'derekwyatt/vim-scala'
+
+" Tabular
+Bundle "git://github.com/godlygeek/tabular.git"
+
 " JS
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'git://github.com/Shutnik/jshint2.vim.git'
@@ -158,6 +180,7 @@ function! GitExec(branch, act)
   let act = a:act
   call VimuxRunCommand("git " . act . " origin " . branch)
 endfunction
+
 
 function! Pull(...)
   if a:0 > 0
