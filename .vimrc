@@ -1,71 +1,57 @@
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Plugins
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle "https://github.com/kien/ctrlp.vim"
-Bundle "tacahiroy/ctrlp-funky"
-Bundle 'git://github.com/terryma/vim-multiple-cursors.git'
-Bundle 'git://github.com/tomtom/tcomment_vim.git'
-Bundle 'ap/vim-css-color'
-Bundle 'benmills/vimux'
-Bundle 'git://github.com/tpope/vim-surround.git'
-
-" Scala
-Bundle 'derekwyatt/vim-scala'
-
-" Tabular
-Bundle "git://github.com/godlygeek/tabular.git"
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'git://github.com/terryma/vim-multiple-cursors.git'
+Plugin 'git://github.com/tomtom/tcomment_vim.git'
+Plugin 'git://github.com/tpope/vim-surround.git'
 
 " CTRL P
-Bundle "https://github.com/kien/ctrlp.vim"
-Bundle "tacahiroy/ctrlp-funky"
+Plugin 'https://github.com/kien/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 
 " Git
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " Tmux tools
-Bundle 'benmills/vimux'
+Plugin 'benmills/vimux'
 
 " Scala
-Bundle 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-scala'
 
 " Tabular
-Bundle "git://github.com/godlygeek/tabular.git"
+Plugin 'godlygeek/tabular'
 
 " JS
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'git://github.com/Shutnik/jshint2.vim.git'
-Bundle 'git://github.com/tpope/vim-jdaddy.git'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'git://github.com/Shutnik/jshint2.vim.git'
+Plugin 'git://github.com/tpope/vim-jdaddy.git'
 
 " Colors
-Bundle 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 
 " Snippets
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-Bundle 'git://github.com/mattn/emmet-vim.git'
-
-" Rails
-Bundle 'git://github.com/tpope/vim-rails.git'
-Bundle 'git://github.com/tpope/vim-rake.git'
-Bundle 'git://github.com/tpope/vim-bundler.git'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'git://github.com/mattn/emmet-vim.git'
 
 " Clojure
-Bundle 'git://github.com/guns/vim-clojure-static.git'
-Bundle 'git://github.com/tpope/vim-fireplace.git'
-Bundle 'git://github.com/tpope/vim-classpath.git'
+Plugin 'git://github.com/guns/vim-clojure-static.git'
+Plugin 'git://github.com/tpope/vim-fireplace.git'
+Plugin 'git://github.com/tpope/vim-classpath.git'
 
 " Dash
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
+Plugin 'rizzatti/funcoo.vim'
+Plugin 'rizzatti/dash.vim'
 
 " Airline
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
+
+call vundle#end()
 
 " Configs
 set ts=2 sts=2 sw=2 expandtab
@@ -102,7 +88,6 @@ endif
 let mapleader = ","
 nmap <C-N><C-N> :set invnumber<CR>
 nmap <C-P> :CtrlP<CR>
-nmap <F3> :NERDTreeToggle<CR>
 imap hh <C-y>,
 
 " Menu
