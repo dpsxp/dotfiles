@@ -9,3 +9,4 @@ data_bag_key
 *.swo
 node_modules
 npm-debug.log
+*.backup
