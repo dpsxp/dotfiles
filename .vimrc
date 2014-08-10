@@ -6,7 +6,12 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'git://github.com/terryma/vim-multiple-cursors.git'
 Plugin 'git://github.com/tomtom/tcomment_vim.git'
+Plugin 'scrooloose/syntastic'
 Plugin 'git://github.com/tpope/vim-surround.git'
+Plugin 'Valloric/YouCompleteMe'
+
+" OpenProject
+Plugin 'https://github.com/rscarvalho/OpenProject.vim.git'
 
 " CTRL P
 Plugin 'https://github.com/kien/ctrlp.vim'
@@ -17,6 +22,7 @@ Plugin 'tpope/vim-fugitive'
 
 " Tmux tools
 Plugin 'benmills/vimux'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'
@@ -24,10 +30,15 @@ Plugin 'derekwyatt/vim-scala'
 " Tabular
 Plugin 'godlygeek/tabular'
 
+" Neat
+Plugin 'sareyko/neat.vim'
+
 " JS
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'git://github.com/Shutnik/jshint2.vim.git'
-Plugin 'git://github.com/tpope/vim-jdaddy.git'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'tpope/vim-jdaddy'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
@@ -38,6 +49,9 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'git://github.com/mattn/emmet-vim.git'
+
+" Ruby
+Plugin 'tpope/vim-rails'
 
 " Clojure
 Plugin 'git://github.com/guns/vim-clojure-static.git'
@@ -59,7 +73,8 @@ filetype plugin indent on
 set mouse=a
 set number
 set t_Co=256
-color twilight256
+color railscasts
+set clipboard=unnamed
 set smartindent
 set autoindent
 set laststatus=2
@@ -76,10 +91,12 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.coffee setfiletype coffeescript
   autocmd BufWrite * :call Trim()
   autocmd FileType markdown let b:noTrim='true'
-  autocmd FileType snippets,css,javascript,html,python,markdown setlocal ts=4 sts=4 sw=4
-  autocmd BufNewFile,BufRead *.less set filetype=sass
-  autocmd BufRead,BufNewFile *.rabl set filetype=ruby
-  autocmd BufRead,BufNewFile *.json set filetype=javascript
+  autocmd FileType snippets,css,html,python,markdown setlocal ts=4 sts=4 sw=4
+  autocmd BufNewFile,BufRead *.less setfiletype sass
+  autocmd BufRead,BufNewFile *.rabl setfiletype ruby
+  autocmd BufRead,BufNewFile Gemfile setfiletype ruby
+  autocmd BufRead,BufNewFile *.ejs setfiletype html
+  autocmd BufRead,BufNewFile *.json setfiletype javascript
   " autocmd BufWritePost .vimrc source $MYVIMRC
   filetype plugin indent on
 endif
@@ -126,6 +143,9 @@ cnoremap <Esc>b <S-Left>
 cnoremap <Esc>f <S-Right>
 cnoremap <Esc>d <S-right><Delete>
 cnoremap <C-g>  <C-c>
+vmap <F1> :w !pbcopy<CR><CR>
+imap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 
 " CtrlP
 let g:ctrlp_extensions = ['funky']
@@ -139,52 +159,61 @@ set wildignore +=*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.sw
 
 " Functions
 function! MoveTo(newname)
-  let a:oldname = expand("%:p")
-  exec "saveas " . a:newname
-  call delete(a:oldname)
-  exec "bdelete " . a:oldname
+let a:oldname = expand("%:p")
+exec "saveas " . a:newname
+call delete(a:oldname)
+exec "bdelete " . a:oldname
 endfunction
 
 
 " Git helper functions
 function! GetBranch()
-  return system("git branch 2> /dev/null | grep '*' | sed -e 's/* //'")
+return system("git branch 2> /dev/null | grep '*' | sed -e 's/* //'")
 endfunction
 
 function! Push(...)
-  if a:0 > 0
-    let branch = a:1
-  else
-    let branch = GetBranch()
-  end
-  call GitExec(branch, "push")
+if a:0 > 0
+  let branch = a:1
+else
+  let branch = GetBranch()
+end
+call GitExec(branch, "push")
 endfunction
 
 function! GitExec(branch, act)
-  let branch = a:branch
-  let act = a:act
-  call VimuxRunCommand("git " . act . " origin " . branch)
+let branch = a:branch
+let act = a:act
+call VimuxRunCommand("git " . act . " origin " . branch)
 endfunction
 
 
 function! Pull(...)
-  if a:0 > 0
-    let branch = a:1
-  else
-    let branch = GetBranch()
-  end
-  call GitExec(branch, "pull --rebase")
+if a:0 > 0
+  let branch = a:1
+else
+  let branch = GetBranch()
+end
+call GitExec(branch, "pull --rebase")
 endfunction
 
 function! Trim()
-  if exists('b:noTrim')
-   return
-  endif
-  %s/\s\+$//e
+if exists('b:noTrim')
+ return
+endif
+%s/\s\+$//e
 endfunction
 
 " Maps for Functions
 nmap <leader>gp :call Push()
 nmap <leader>gf :call Pull()
+let g:syntastic_javascript_checkers = ['jshint']
 
+
+let g:OpenProject#folder_prefix = $HOME . "/workspace/"
+
+let g:OpenProject#projects = {
+  \"prost": "prost",
+  \"prost_view": "prost_view",
+  \"prost_videos": "prost_videos"
+\}
 let coffee_linter = '/usr/local/bin/coffeelint'

@@ -60,3 +60,8 @@ export PGHOST=localhost
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+
+## Aliases
+alias be="bundle exec"
+alias rs="be rails s"
