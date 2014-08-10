@@ -106,6 +106,7 @@ let mapleader = ","
 nmap <C-N><C-N> :set invnumber<CR>
 nmap <C-P> :CtrlP<CR>
 imap hh <C-y>,
+nmap <F3> :Vex<CR>,
 
 " Menu
 set completeopt=longest,menuone
