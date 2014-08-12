@@ -13,6 +13,9 @@ Plugin 'Valloric/YouCompleteMe'
 " OpenProject
 Plugin 'https://github.com/rscarvalho/OpenProject.vim.git'
 
+" Indent Line
+Plugin 'Yggdroot/indentLine'
+
 " CTRL P
 Plugin 'https://github.com/kien/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
@@ -69,6 +72,7 @@ call vundle#end()
 
 " Configs
 set ts=2 sts=2 sw=2 expandtab
+set backspace=indent,eol,start
 filetype plugin indent on
 set mouse=a
 set number
@@ -106,7 +110,7 @@ let mapleader = ","
 nmap <C-N><C-N> :set invnumber<CR>
 nmap <C-P> :CtrlP<CR>
 imap hh <C-y>,
-nmap <F3> :Vex<CR>,
+nmap <F3> :Vex<CR>
 
 " Menu
 set completeopt=longest,menuone
@@ -123,7 +127,6 @@ map tx :call VimuxCloseRunner()<CR>
 map tr :call VimuxPromptCommand()<CR>
 
 " Leader maps
-nmap <leader>v :tabedit $MYVIMRC
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>a :Gwrite<CR>
 nmap <leader>c :Gcommit<CR>
@@ -156,52 +159,55 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '>'
 
+" IndentLine
+let g:indentLine_char = '.'
+
 set wildignore +=*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp
 
 " Functions
 function! MoveTo(newname)
-let a:oldname = expand("%:p")
-exec "saveas " . a:newname
-call delete(a:oldname)
-exec "bdelete " . a:oldname
+  let a:oldname = expand("%:p")
+  exec "saveas " . a:newname
+  call delete(a:oldname)
+  exec "bdelete " . a:oldname
 endfunction
 
 
 " Git helper functions
 function! GetBranch()
-return system("git branch 2> /dev/null | grep '*' | sed -e 's/* //'")
+  return system("git branch 2> /dev/null | grep '*' | sed -e 's/* //'")
 endfunction
 
 function! Push(...)
-if a:0 > 0
-  let branch = a:1
-else
-  let branch = GetBranch()
-end
-call GitExec(branch, "push")
+  if a:0 > 0
+    let branch = a:1
+  else
+    let branch = GetBranch()
+  end
+  call GitExec(branch, "push")
 endfunction
 
 function! GitExec(branch, act)
-let branch = a:branch
-let act = a:act
-call VimuxRunCommand("git " . act . " origin " . branch)
+  let branch = a:branch
+  let act = a:act
+  call VimuxRunCommand("git " . act . " origin " . branch)
 endfunction
 
 
 function! Pull(...)
-if a:0 > 0
-  let branch = a:1
-else
-  let branch = GetBranch()
-end
-call GitExec(branch, "pull --rebase")
+  if a:0 > 0
+    let branch = a:1
+  else
+    let branch = GetBranch()
+  end
+  call GitExec(branch, "pull --rebase")
 endfunction
 
 function! Trim()
-if exists('b:noTrim')
- return
-endif
-%s/\s\+$//e
+  if exists('b:noTrim')
+   return
+  endif
+  %s/\s\+$//e
 endfunction
 
 " Maps for Functions

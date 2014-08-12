@@ -21,6 +21,8 @@
 	s = status
 	pu = pull
 	l = log
-	cm = commit -m 
+	cm = commit -m
 	ca = commit --amend
-	
+
+[push]
+	default = simple
