@@ -110,6 +110,7 @@ let mapleader = ","
 nmap <C-N><C-N> :set invnumber<CR>
 nmap <C-P> :CtrlP<CR>
 imap hh <C-y>,
+imap ee <Plug>snipMateTrigger
 nmap <F3> :Vex<CR>
 
 " Menu
@@ -160,7 +161,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '>'
 
 " IndentLine
-let g:indentLine_char = '.'
+let g:indentLine_char = '_'
 
 set wildignore +=*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp
 
