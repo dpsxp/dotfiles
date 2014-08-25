@@ -14,7 +14,8 @@ alias zshconfig="vim ~/.zshrc"
 alias zshreload="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias rspec="bundle exec rspec"
-source ~/.bin/tmuxinator.zsh
+alias tmuxconfig="vim ~/dotfiles/.tmux.conf"
+alias tmuxreload="tmux source-file ~/dotfiles/.tmux.conf"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -57,6 +58,7 @@ export PATH=$PATH:$HOME/bin/android-sdk/tools:$HOME/bin/android-skd/platform-too
 # Mvim
 export EDITOR=vim
 export PGHOST=localhost
+export DB_HOST=localhost
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
