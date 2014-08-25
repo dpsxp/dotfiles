@@ -46,6 +46,10 @@ Plugin 'jelera/vim-javascript-syntax'
 " Colors
 Plugin 'flazz/vim-colorschemes'
 
+" Ruby Shit
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+
 " Snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -77,7 +81,7 @@ filetype plugin indent on
 set mouse=a
 set number
 set t_Co=256
-color railscasts
+color twilight256
 set clipboard=unnamed
 set smartindent
 set autoindent
@@ -110,7 +114,7 @@ let mapleader = ","
 nmap <C-N><C-N> :set invnumber<CR>
 nmap <C-P> :CtrlP<CR>
 imap hh <C-y>,
-imap ee <Plug>snipMateTrigger
+imap <C-tab> <Plug>snipMateTrigger
 nmap <F3> :Vex<CR>
 
 " Menu
