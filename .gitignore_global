@@ -2,11 +2,14 @@
 .idea
 .bundle
 .DS_Store
-vendor/ruby/
+vendor
 app_keys.sh
 data_bag_key
 *.swp
 *.swo
+*.swn
+*.swl
+*.swm
 node_modules
 npm-debug.log
 *.backup
