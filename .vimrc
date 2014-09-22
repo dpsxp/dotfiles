@@ -10,11 +10,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'git://github.com/tpope/vim-surround.git'
 Plugin 'Valloric/YouCompleteMe'
 
-" OpenProject
-Plugin 'https://github.com/rscarvalho/OpenProject.vim.git'
-
-" Indent Line
-Plugin 'Yggdroot/indentLine'
 
 " CTRL P
 Plugin 'https://github.com/kien/ctrlp.vim'
@@ -26,9 +21,6 @@ Plugin 'tpope/vim-fugitive'
 " Tmux tools
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
-
-" Scala
-Plugin 'derekwyatt/vim-scala'
 
 " Tabular
 Plugin 'godlygeek/tabular'
@@ -46,24 +38,16 @@ Plugin 'jelera/vim-javascript-syntax'
 " Colors
 Plugin 'flazz/vim-colorschemes'
 
-" Ruby Shit
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-
 " Snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
+Plugin 'SirVer/ultisnips'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'git://github.com/mattn/emmet-vim.git'
 
 " Ruby
 Plugin 'tpope/vim-rails'
-
-" Clojure
-Plugin 'git://github.com/guns/vim-clojure-static.git'
-Plugin 'git://github.com/tpope/vim-fireplace.git'
-Plugin 'git://github.com/tpope/vim-classpath.git'
 
 " Dash
 Plugin 'rizzatti/funcoo.vim'
@@ -81,32 +65,33 @@ filetype plugin indent on
 set mouse=a
 set number
 set t_Co=256
+" color codeschool
 color twilight256
 set clipboard=unnamed
 set smartindent
 set autoindent
-set laststatus=2
 
 if has("gui_running")
-  set guifont=Monaco:h12
   set guioptions-=r
   set guioptions-=l
+else
+set laststatus=2
 endif
 
 
 if has("autocmd")
   syntax on
-  autocmd BufNewFile,BufRead *.coffee setfiletype coffeescript
+  autocmd BufNewFile,BufRead *.coffee set filetype=coffeescript
   autocmd BufWrite * :call Trim()
   autocmd FileType markdown let b:noTrim='true'
   autocmd FileType snippets,css,html,python,markdown setlocal ts=4 sts=4 sw=4
-  autocmd BufNewFile,BufRead *.less setfiletype sass
-  autocmd BufRead,BufNewFile *.rabl setfiletype ruby
-  autocmd BufRead,BufNewFile Gemfile setfiletype ruby
-  autocmd BufRead,BufNewFile *.ejs setfiletype html
-  autocmd BufRead,BufNewFile *.json setfiletype javascript
-  " autocmd BufWritePost .vimrc source $MYVIMRC
-  filetype plugin indent on
+  autocmd BufNewFile,BufRead *_spec.js UltiSnipsAddFiletypes javascript_jasmine
+  autocmd BufNewFile,BufRead *_spec.coffee UltiSnipsAddFiletypes coffee_jasmine
+  autocmd BufNewFile,BufRead *.less set filetype=sass
+  autocmd BufRead,BufNewFile *.rabl set filetype=ruby
+  autocmd BufRead,BufNewFile Gemfile set filetype=ruby
+  autocmd BufRead,BufNewFile *.ejs set filetype=html
+  autocmd BufRead,BufNewFile *.json set filetype=javascript
 endif
 
 " Maps
@@ -114,7 +99,7 @@ let mapleader = ","
 nmap <C-N><C-N> :set invnumber<CR>
 nmap <C-P> :CtrlP<CR>
 imap hh <C-y>,
-imap <C-tab> <Plug>snipMateTrigger
+imap kk <Plug>snipMateNextOrTrigger
 nmap <F3> :Vex<CR>
 
 " Menu
@@ -164,8 +149,11 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '>'
 
-" IndentLine
-let g:indentLine_char = '_'
+" Utilsnips
+let g:UltiSnipsExpandTrigger="aa"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 
 set wildignore +=*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp
 
@@ -220,12 +208,4 @@ nmap <leader>gp :call Push()
 nmap <leader>gf :call Pull()
 let g:syntastic_javascript_checkers = ['jshint']
 
-
-let g:OpenProject#folder_prefix = $HOME . "/workspace/"
-
-let g:OpenProject#projects = {
-  \"prost": "prost",
-  \"prost_view": "prost_view",
-  \"prost_videos": "prost_videos"
-\}
 let coffee_linter = '/usr/local/bin/coffeelint'
