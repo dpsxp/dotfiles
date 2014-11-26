@@ -1,15 +1,10 @@
-*~
 .idea
 .bundle
 .DS_Store
 vendor
 app_keys.sh
 data_bag_key
-*.swp
-*.swo
-*.swn
-*.swl
-*.swm
+*.sw?
 node_modules
 npm-debug.log
 *.backup
