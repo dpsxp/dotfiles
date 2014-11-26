@@ -1,24 +1,26 @@
 [user]
-	name = Daniel Paulino
-	email = danielpaulino030@gmail.com
+  name = Daniel Paulino
+  email = danielpaulino030@gmail.com
 [core]
-	excludesfile = /home/daniel/.gitignore_global
+  excludesfile = $HOME/.gitignore_global
 [merge]
-  tool = kdiff3
+  tool = "kdiff3"
+[mergetool "kdiff3"]
+  cmd = kdiff3
+  trustExitCode = true
 [color]
-	ui = true
+  ui = true
 [alias]
-	ff = flow feature
-	fh = flow hotfix
-	fr = flow release
-	co = checkout
-	p = push
-	bd = branch -d
-	s = status
-	pu = pull
-	l = log
-	cm = commit -m
-	ca = commit --amend
-
+  ff = flow feature
+  fh = flow hotfix
+  fr = flow release
+  co = checkout
+  p = push
+  bd = branch -d
+  s = status
+  pu = pull
+  l = log
+  cm = commit -m
+  ca = commit --amend
 [push]
-	default = simple
+  default = simple
