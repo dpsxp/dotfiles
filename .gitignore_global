@@ -8,3 +8,4 @@ data_bag_key
 node_modules
 npm-debug.log
 *.backup
+easytags
