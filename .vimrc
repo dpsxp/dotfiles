@@ -14,6 +14,7 @@ Plugin 'Valloric/YouCompleteMe'
 " CTRL P
 Plugin 'https://github.com/kien/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'ivalkeen/vim-ctrlp-tjump'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -37,6 +38,7 @@ Plugin 'jelera/vim-javascript-syntax'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
+Plugin 'sickill/vim-monokai'
 
 " Snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -56,6 +58,10 @@ Plugin 'rizzatti/dash.vim'
 " Airline
 Plugin 'bling/vim-airline'
 
+" Tags
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+
 call vundle#end()
 
 " Configs
@@ -65,8 +71,8 @@ filetype plugin indent on
 set mouse=a
 set number
 set t_Co=256
-" color codeschool
-color twilight256
+" color twilight
+color codeschool
 set clipboard=unnamed
 set smartindent
 set autoindent
@@ -74,8 +80,10 @@ set autoindent
 if has("gui_running")
   set guioptions-=r
   set guioptions-=l
+  set guifont=Monaco
+  color codeschool
 else
-set laststatus=2
+  set laststatus=2
 endif
 
 
@@ -102,6 +110,12 @@ imap hh <C-y>,
 imap kk <Plug>snipMateNextOrTrigger
 nmap <F3> :Vex<CR>
 
+" Copy and paste (god bless stackoverflow)
+vmap <C-c> "+y
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
+
 " Menu
 set completeopt=longest,menuone
 " Using Enter to select any option on autocomplete menu
@@ -117,13 +131,14 @@ map tx :call VimuxCloseRunner()<CR>
 map tr :call VimuxPromptCommand()<CR>
 
 " Leader maps
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>a :Gwrite<CR>
-nmap <leader>c :Gcommit<CR>
-nmap <leader>s :Gstatus<CR>
+nmap <leader>b  :CtrlPBuffer<CR>
+nmap <leader>a  :Gwrite<CR>
+nmap <leader>c  :Gcommit<CR>
+nmap <leader>s  :Gstatus<CR>
+nmap <leader>t  :CtrlPtjump<CR>
 nmap <leader>fu :CtrlPFunky<CR>
-nmap <leader>p :copen<CR>
-nmap <leader>j :JSHint<CR>
+nmap <leader>p  :copen<CR>
+nmap <leader>j  :JSHint<CR>
 
 " Maps
 cnoremap <C-a>  <Home>
@@ -142,7 +157,7 @@ imap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 
 " CtrlP
-let g:ctrlp_extensions = ['funky']
+let g:ctrlp_extensions = ['funky', 'tjump']
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " Airline
@@ -155,7 +170,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
-set wildignore +=*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp
+set wildignore +=*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp,*/scripts/vendor/*
 
 " Functions
 function! MoveTo(newname)
@@ -206,6 +221,12 @@ endfunction
 " Maps for Functions
 nmap <leader>gp :call Push()
 nmap <leader>gf :call Pull()
+
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_aggregate_errors = 1
 
 let coffee_linter = '/usr/local/bin/coffeelint'
+
+let &t_8f="\e[38;2;%ld;%ld;%ldm"
+let &t_8b="\e[48;2;%ld;%ld;%ldm"
+set guicolors
