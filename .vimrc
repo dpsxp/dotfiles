@@ -71,8 +71,6 @@ filetype plugin indent on
 set mouse=a
 set number
 set t_Co=256
-" color twilight
-color codeschool
 set clipboard=unnamed
 set smartindent
 set autoindent
@@ -80,8 +78,6 @@ set autoindent
 if has("gui_running")
   set guioptions-=r
   set guioptions-=l
-  set guifont=Monaco
-  color codeschool
 else
   set laststatus=2
 endif
@@ -100,6 +96,7 @@ if has("autocmd")
   autocmd BufRead,BufNewFile Gemfile set filetype=ruby
   autocmd BufRead,BufNewFile *.ejs set filetype=html
   autocmd BufRead,BufNewFile *.json set filetype=javascript
+  color codeschool
 endif
 
 " Maps
@@ -169,6 +166,9 @@ let g:UltiSnipsExpandTrigger="aa"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+if exists("g:ctrlp_user_command")
+  unlet g:ctrlp_user_command
+endif
 
 set wildignore +=*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp,*/scripts/vendor/*
 
@@ -230,3 +230,4 @@ let coffee_linter = '/usr/local/bin/coffeelint'
 let &t_8f="\e[38;2;%ld;%ld;%ldm"
 let &t_8b="\e[48;2;%ld;%ld;%ldm"
 set guicolors
+" set t_ut=''
