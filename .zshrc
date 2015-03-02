@@ -13,6 +13,7 @@ alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshreload="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
+alias gitconfig="vim ~/.gitconfig"
 alias rspec="bundle exec rspec"
 alias tmuxconfig="vim ~/dotfiles/.tmux.conf"
 alias tmuxreload="tmux source-file ~/dotfiles/.tmux.conf"
@@ -62,8 +63,28 @@ export DB_HOST=localhost
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/bin:$PATH"
 
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 ## Aliases
+
+# Ruby
 alias be="bundle exec"
 alias rs="be rails s"
+alias rd="be rake release_dev"
+alias rc="be rake release_compatible"
+alias rb="be rake release_bugfix"
+alias t="be rspec"
+alias bi="bundle install --path=./vendor"
+
+# Javascript
+alias jt="npm test"
+
+# Git
+alias gc="git clone"
+
+export NVM_DIR="/home/dpaulino/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
