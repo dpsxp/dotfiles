@@ -24,4 +24,4 @@
   mt = mergetool
   rc = rebase --continue
 [push]
-  default = simple
+  default = tracking
