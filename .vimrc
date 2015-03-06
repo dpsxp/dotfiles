@@ -32,9 +32,8 @@ Plugin 'sareyko/neat.vim'
 " JS
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Shutnik/jshint2.vim'
-Plugin 'tpope/vim-jdaddy'
-Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'heavenshell/vim-jsdoc'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
@@ -135,7 +134,7 @@ nmap <leader>s  :Gstatus<CR>
 nmap <leader>t  :CtrlPtjump<CR>
 nmap <leader>fu :CtrlPFunky<CR>
 nmap <leader>p  :copen<CR>
-nmap <leader>j  :JSHint<CR>
+nmap <leader>j  :JsDoc<CR>
 
 " Maps
 cnoremap <C-a>  <Home>
@@ -165,6 +164,11 @@ let g:airline#extensions#tabline#left_alt_sep = '>'
 let g:UltiSnipsExpandTrigger="aa"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Javascript
+let g:jsdoc_default_mapping = 0
+let g:jsdoc_underscore_private = 1
+let g:jsdoc_allow_shorthand = 1
 
 if exists("g:ctrlp_user_command")
   unlet g:ctrlp_user_command
@@ -219,15 +223,15 @@ function! Trim()
 endfunction
 
 " Maps for Functions
-nmap <leader>gp :call Push()
-nmap <leader>gf :call Pull()
+nmap <leader>gp :call Push()<CR>
+nmap <leader>gf :call Pull()<CR>
 
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_aggregate_errors = 1
 
 let coffee_linter = '/usr/local/bin/coffeelint'
 
+" 24 bits
 let &t_8f="\e[38;2;%ld;%ld;%ldm"
 let &t_8b="\e[48;2;%ld;%ld;%ldm"
 set guicolors
-" set t_ut=''
