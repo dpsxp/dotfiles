@@ -8,15 +8,36 @@ ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="af-magic"
 ZSH_THEME="skaro"
 
+## Aliases
+
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshreload="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias gitconfig="vim ~/.gitconfig"
-alias rspec="bundle exec rspec"
 alias tmuxconfig="vim ~/dotfiles/.tmux.conf"
 alias tmuxreload="tmux source-file ~/dotfiles/.tmux.conf"
+
+# Linux aliases
+alias install="sudo apt-get install -y"
+alias upgrade="sudo apt-get upgrade && sudo apt-get update"
+
+# Ruby
+alias be="bundle exec"
+alias rs="be rails s"
+alias rd="be rake release_dev"
+alias rc="be rake release_compatible"
+alias rb="be rake release_bugfix"
+alias rt="be rspec"
+alias bi="bundle install --path=./vendor"
+alias bu="bundle upgrade"
+
+# Javascript
+alias jt="npm test"
+
+# Git
+alias gc="git clone"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -47,7 +68,7 @@ alias tmuxreload="tmux source-file ~/dotfiles/.tmux.conf"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails git ruby rbenv brew node npm git-flow grunt)
+plugins=(git rails git ruby rbenv brew node npm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -58,8 +79,12 @@ export PATH=$PATH:$HOME/bin/android-sdk/tools:$HOME/bin/android-skd/platform-too
 
 # Mvim
 export EDITOR=vim
+
 export PGHOST=localhost
 export DB_HOST=localhost
+
+# Docker
+export DOCKER_HOST="tcp://localhost:4243"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -69,22 +94,6 @@ export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
-## Aliases
-
-# Ruby
-alias be="bundle exec"
-alias rs="be rails s"
-alias rd="be rake release_dev"
-alias rc="be rake release_compatible"
-alias rb="be rake release_bugfix"
-alias t="be rspec"
-alias bi="bundle install --path=./vendor"
-
-# Javascript
-alias jt="npm test"
-
-# Git
-alias gc="git clone"
 
 export NVM_DIR="/home/dpaulino/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

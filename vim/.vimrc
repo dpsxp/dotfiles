@@ -16,6 +16,9 @@ Plugin 'https://github.com/kien/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 
+" Markdown
+Plugin 'suan/vim-instant-markdown'
+
 " Git
 Plugin 'tpope/vim-fugitive'
 
@@ -34,6 +37,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'heavenshell/vim-jsdoc'
+Plugin 'dpsxp/vim-backbone'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
@@ -53,6 +57,9 @@ Plugin 'tpope/vim-rails'
 " Dash
 Plugin 'rizzatti/funcoo.vim'
 Plugin 'rizzatti/dash.vim'
+
+" Editor
+Plugin 'editorconfig/editorconfig-vim'
 
 " Airline
 Plugin 'bling/vim-airline'
@@ -84,10 +91,11 @@ endif
 
 if has("autocmd")
   syntax on
-  autocmd BufNewFile,BufRead *.coffee set filetype=coffeescript
+  autocmd BufNewFile,BufRead *.coffee set filetype=coffee
   autocmd BufWrite * :call Trim()
   autocmd FileType markdown let b:noTrim='true'
   autocmd FileType snippets,css,html,python,markdown setlocal ts=4 sts=4 sw=4
+  autocmd BufNewFile,BufRead *.md set filetype=markdown
   autocmd BufNewFile,BufRead *_spec.js UltiSnipsAddFiletypes javascript_jasmine
   autocmd BufNewFile,BufRead *_spec.coffee UltiSnipsAddFiletypes coffee_jasmine
   autocmd BufNewFile,BufRead *.less set filetype=sass

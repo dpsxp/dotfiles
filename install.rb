@@ -5,11 +5,15 @@
 sym_link = ->(file) {  system "ln -fs #{File.join(Dir.pwd, file)} $HOME/" }
 
 load_path = ->(dir) do
-  return if dir === '.git'
+  exclude_dirs = %w(. .. .git)
+  return if exclude_dirs.include? dir
 
   if File.directory?(dir)
     Dir.entries(dir).map do |file|
-      Dir.chdir(dir) { sym_link.call(file) }
+      Dir.chdir(dir) {
+        return if exclude_dirs.include? file
+        sym_link.call(file)
+      }
     end
   end
 end
