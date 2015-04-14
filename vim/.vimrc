@@ -92,6 +92,7 @@ endif
 if has("autocmd")
   syntax on
   autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+  autocmd BufNewFile,BufRead *.styl set filetype=scss
   autocmd BufWrite * :call Trim()
   autocmd FileType markdown let b:noTrim='true'
   autocmd FileType snippets,css,html,python,markdown setlocal ts=4 sts=4 sw=4
