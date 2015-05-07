@@ -64,10 +64,6 @@ Plugin 'editorconfig/editorconfig-vim'
 " Airline
 Plugin 'bling/vim-airline'
 
-" Tags
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-
 call vundle#end()
 
 " Configs
