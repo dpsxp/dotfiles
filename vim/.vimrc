@@ -71,15 +71,22 @@ set ts=2 sts=2 sw=2 expandtab
 set backspace=indent,eol,start
 filetype plugin indent on
 set mouse=a
+set rnu
 set number
 set t_Co=256
 set clipboard=unnamed
 set smartindent
 set autoindent
+set copyindent
+set novisualbell
+set noerrorbells
+set cc=90
 
 if has("gui_running")
   set guioptions-=r
+  set guioptions-=T
   set guioptions-=l
+  set guifont=UbuntuMono\ 10
 else
   set laststatus=2
 endif
@@ -91,7 +98,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.styl set filetype=scss
   autocmd BufWrite * :call Trim()
   autocmd FileType markdown let b:noTrim='true'
-  autocmd FileType snippets,css,html,python,markdown setlocal ts=4 sts=4 sw=4
+  autocmd FileType snippets,html,python,sass,css setlocal ts=4 sts=4 sw=4
   autocmd BufNewFile,BufRead *.md set filetype=markdown
   autocmd BufNewFile,BufRead *_spec.js UltiSnipsAddFiletypes javascript_jasmine
   autocmd BufNewFile,BufRead *_spec.coffee UltiSnipsAddFiletypes coffee_jasmine
@@ -100,7 +107,7 @@ if has("autocmd")
   autocmd BufRead,BufNewFile Gemfile set filetype=ruby
   autocmd BufRead,BufNewFile *.ejs set filetype=html
   autocmd BufRead,BufNewFile *.json set filetype=javascript
-  color codeschool
+  color Tomorrow-Night
 endif
 
 " Maps
@@ -179,7 +186,7 @@ if exists("g:ctrlp_user_command")
   unlet g:ctrlp_user_command
 endif
 
-set wildignore +=*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp,*/scripts/vendor/*
+set wildignore +=*doc,*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp,*/scripts/vendor/*,*.png,*.jpg,*.gif
 
 " Functions
 function! MoveTo(newname)
@@ -231,7 +238,7 @@ endfunction
 nmap <leader>gp :call Push()<CR>
 nmap <leader>gf :call Pull()<CR>
 
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 let g:syntastic_aggregate_errors = 1
 
 let coffee_linter = '/usr/local/bin/coffeelint'
