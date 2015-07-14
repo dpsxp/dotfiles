@@ -70,8 +70,8 @@ call vundle#end()
 set ts=2 sts=2 sw=2 expandtab
 set backspace=indent,eol,start
 filetype plugin indent on
-set mouse=a
-set rnu
+set mouse=a " Mouse
+set rnu " Relative line number
 set number
 set t_Co=256
 set clipboard=unnamed
@@ -137,6 +137,8 @@ let g:VimuxUseNearestPane = 1
 map tl :call VimuxRunLastCommand()<CR>
 map tx :call VimuxCloseRunner()<CR>
 map tr :call VimuxPromptCommand()<CR>
+map tz :call VimuxZoomRunner()<CR>
+map tt :call VimuxRunCommand("clear; be rspec " . expand("%"))<CR>
 
 " Leader maps
 nmap <leader>b  :CtrlPBuffer<CR>
