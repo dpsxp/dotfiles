@@ -9,6 +9,7 @@ Plugin 'git://github.com/tomtom/tcomment_vim.git'
 Plugin 'scrooloose/syntastic'
 Plugin 'git://github.com/tpope/vim-surround.git'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-dispatch'
 
 
 " CTRL P
@@ -33,11 +34,11 @@ Plugin 'godlygeek/tabular'
 Plugin 'sareyko/neat.vim'
 
 " JS
+Plugin 'dpsxp/vim-backbone'
+Plugin 'dpsxp/vim-jshint-compiler'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'Shutnik/jshint2.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'heavenshell/vim-jsdoc'
-Plugin 'dpsxp/vim-backbone'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
