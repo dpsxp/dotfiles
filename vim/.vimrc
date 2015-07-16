@@ -55,10 +55,6 @@ Plugin 'git://github.com/mattn/emmet-vim.git'
 " Ruby
 Plugin 'tpope/vim-rails'
 
-" Dash
-Plugin 'rizzatti/funcoo.vim'
-Plugin 'rizzatti/dash.vim'
-
 " Editor
 Plugin 'editorconfig/editorconfig-vim'
 
