@@ -5,9 +5,6 @@
   excludesfile = ~/.gitignore_global
 [merge]
   tool = "kdiff3"
-  strategy-option = "theirs"
-[rebase]
-  strategy-option = "theirs"
 [mergetool "kdiff3"]
   trustExitCode = true
 [color]
