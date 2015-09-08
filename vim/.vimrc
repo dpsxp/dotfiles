@@ -10,6 +10,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'git://github.com/tpope/vim-surround.git'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-dispatch'
+Plugin 'Shutnik/jshint2.vim'
 
 
 " CTRL P
@@ -83,7 +84,7 @@ if has("gui_running")
   set guioptions-=r
   set guioptions-=T
   set guioptions-=l
-  set guifont=UbuntuMono\ 10
+  set guifont=UbuntuMono\ 12
 else
   set laststatus=2
 endif
@@ -94,6 +95,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.coffee set filetype=coffee
   autocmd BufNewFile,BufRead *.styl set filetype=scss
   autocmd BufWrite * :call Trim()
+  " autocmd BufWrite *.js :Dispatch! jshint %<CR>
   autocmd FileType markdown let b:noTrim='true'
   autocmd FileType snippets,html,python,sass,css setlocal ts=4 sts=4 sw=4
   autocmd BufNewFile,BufRead *.md set filetype=markdown
@@ -136,6 +138,7 @@ map tx :call VimuxCloseRunner()<CR>
 map tr :call VimuxPromptCommand()<CR>
 map tz :call VimuxZoomRunner()<CR>
 map tt :call VimuxRunCommand("clear; be rspec " . expand("%"))<CR>
+map tv :call VimuxRunCommand("clear; be rspec " . expand("%") . ":" . line("."))<CR>
 
 " Leader maps
 nmap <leader>b  :CtrlPBuffer<CR>
@@ -185,7 +188,7 @@ if exists("g:ctrlp_user_command")
   unlet g:ctrlp_user_command
 endif
 
-set wildignore +=*doc,*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp,*/scripts/vendor/*,*.png,*.jpg,*.gif
+set wildignore +=*tests_output,*coverage,*doc,*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp,*/scripts/vendor/*,*.png,*.jpg,*.gif
 
 " Functions
 function! MoveTo(newname)
@@ -237,7 +240,7 @@ endfunction
 nmap <leader>gp :call Push()<CR>
 nmap <leader>gf :call Pull()<CR>
 
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_aggregate_errors = 1
 
 let coffee_linter = '/usr/local/bin/coffeelint'
