@@ -37,7 +37,7 @@ ZSH_THEME="skaro"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# plugins=(git git ruby rbenv brew node npm)
+plugins=(git rbenv brew node npm ruby)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -57,6 +57,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/bin:$PATH"
 
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin/slimerjs:$PATH"
 export PATH="$HOME/bin/firefox:$PATH"
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
@@ -86,6 +87,7 @@ alias rb="be rake release_bugfix"
 alias rt="be rspec"
 alias bi="bundle install --path=./vendor"
 alias bu="bundle upgrade"
+alias rspec="be rspec"
 
 # Javascript
 alias jt="npm test"
