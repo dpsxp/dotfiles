@@ -188,7 +188,7 @@ if exists("g:ctrlp_user_command")
   unlet g:ctrlp_user_command
 endif
 
-set wildignore +=*tests_output,*coverage,*doc,*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp,*/scripts/vendor/*,*.png,*.jpg,*.gif
+set wildignore +=*dist*,*node_modules*,*bower_components*,*tests_output,*coverage,*doc,*/node_modules/*,*/vendor/ruby/*,*/vendor/jruby/**,*/tmp/*,*.swp,*/scripts/vendor/*,*.png,*.jpg,*.gif
 
 " Functions
 function! MoveTo(newname)
@@ -244,8 +244,3 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_aggregate_errors = 1
 
 let coffee_linter = '/usr/local/bin/coffeelint'
-
-" 24 bits
-let &t_8f="\e[38;2;%ld;%ld;%ldm"
-let &t_8b="\e[48;2;%ld;%ld;%ldm"
-set guicolors
