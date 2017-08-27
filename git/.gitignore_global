@@ -7,5 +7,7 @@ data_bag_key
 *.sw?
 node_modules
 npm-debug.log
+.npmrc
 *.backup
 easytags
+.tern-port

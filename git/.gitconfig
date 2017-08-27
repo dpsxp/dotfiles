@@ -17,7 +17,7 @@
   p = push
   bd = branch -d
   s = status
-  pu = pull
+  pu = pull --prune
   l = log
   cm = commit -m
   ca = commit --amend
